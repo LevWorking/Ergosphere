@@ -1,0 +1,97 @@
+[+] Containers:
+ |- [+] Container: /Game/ThirdPerson/Maps/ThirdPersonMap
+ |   |- [+] ActorDescs:
+ |   |   |- Guid:296D0CA1470797390AB39D86E8297370 BaseClass: NativeClass:/Script/Engine.PointLight Name:PointLight_UAID_047C1684FEE48DFB01_1457534032 Label:PointLight SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=269.706 Y=170.133 Z=-750.694), Max=(X=2269.706 Y=2170.133 Z=1249.306) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- Guid:3A00AA1C422CE54C0BDB60BAF471BFBB BaseClass: NativeClass:/Script/Engine.PlayerStart Name:PlayerStart_0 Label:PlayerStart SpatiallyLoaded:0 Bounds:IsValid=true, Min=(X=911.345 Y=1117.072 Z=212.928), Max=(X=991.345 Y=1197.072 Z=396.928) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- Guid:45954970407C5330F5146684C853AF90 BaseClass:/Game/GameManagement/BP_Player.BP_Player_C NativeClass:/Script/Engine.Actor Name:BP_Opponent_C_UAID_047C1684FEE44DF501_2035658433 Label:BP_Opponent3 SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=1402.695 Y=1504.708 Z=274.321), Max=(X=1402.695 Y=1504.708 Z=274.321) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- Guid:627934CD47F7E838F5E548B4D66A95BF BaseClass:/Game/GameManagement/BP_Player.BP_Player_C NativeClass:/Script/Engine.Actor Name:BP_Player_C_UAID_047C1684FEE418FE01_1915604607 Label:BP_Player SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=746.241 Y=1156.128 Z=155.659), Max=(X=746.241 Y=1156.128 Z=155.659) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- Guid:6BAF4DDD444C60371492D3919DB42C97 BaseClass: NativeClass:/Script/Engine.WorldDataLayers Name:WorldDataLayers Label:WorldDataLayers SpatiallyLoaded:0 Bounds:IsValid=true, Min=(X=0.000 Y=0.000 Z=0.000), Max=(X=0.000 Y=0.000 Z=0.000) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:1
+ |   |   |- Guid:7276A830495DCAB48FD82B8EFC315D4A BaseClass:/Game/GameManagement/GameManager.GameManager_C NativeClass:/Script/Engine.Actor Name:GameManager_C_UAID_047C1684FEE46EF201_2002596071 Label:GameManager SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=1330.000 Y=1060.000 Z=916.589), Max=(X=1330.000 Y=1060.000 Z=916.589) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- Guid:8097CF134EA2C87CFE1DC1B57AB261BB BaseClass:/Game/Resources/blackhole3/BlackHoleTutorial.BlackHoleTutorial_C NativeClass:/Script/Engine.Actor Name:BlackHoleTutorial_C_UAID_047C1684FEE481FA01_1877625863 Label:BlackHoleTutorial SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=-14998729.114 Y=-14998831.351 Z=-14999745.720), Max=(X=15001275.464 Y=15001169.543 Z=15000252.885) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- Guid:E0C7B6324961FFDB084C40BDF0DAFE32 BaseClass:/Game/Resources/blackhole2/BlackHoleBP.BlackHoleBP_C NativeClass:/Script/Engine.Actor Name:BlackHoleBP_C_UAID_047C1684FEE4ECF401_1141518378 Label:BlackHoleBP SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=1125.925 Y=1021.058 Z=110.182), Max=(X=1416.910 Y=1312.043 Z=401.167) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- Guid:E470947741F5C1615254E39CA07BBA3B BaseClass:/Game/GameManagement/BP_Player.BP_Player_C NativeClass:/Script/Engine.Actor Name:BP_Opponent_C_UAID_047C1684FEE44DF501_2028240432 Label:BP_Opponent2 SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=1476.796 Y=946.536 Z=423.630), Max=(X=1476.796 Y=946.536 Z=423.630) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- Guid:F429E76F4F9B3C5E1C993594452BC5B7 BaseClass:/Game/GameManagement/BP_Player.BP_Player_C NativeClass:/Script/Engine.Actor Name:BP_Opponent_C_UAID_047C1684FEE44DF501_1724086431 Label:BP_Opponent SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=1304.513 Y=705.195 Z=257.524), Max=(X=1304.513 Y=705.195 Z=257.524) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |- [+] Clusters:
+ |   |   |- [+] [  0]
+ |   |   |   |- Guid:296D0CA1470797390AB39D86E8297370 BaseClass: NativeClass:/Script/Engine.PointLight Name:PointLight_UAID_047C1684FEE48DFB01_1457534032 Label:PointLight SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=269.706 Y=170.133 Z=-750.694), Max=(X=2269.706 Y=2170.133 Z=1249.306) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- [+] [  1]
+ |   |   |   |- Guid:3A00AA1C422CE54C0BDB60BAF471BFBB BaseClass: NativeClass:/Script/Engine.PlayerStart Name:PlayerStart_0 Label:PlayerStart SpatiallyLoaded:0 Bounds:IsValid=true, Min=(X=911.345 Y=1117.072 Z=212.928), Max=(X=991.345 Y=1197.072 Z=396.928) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- [+] [  2]
+ |   |   |   |- Guid:45954970407C5330F5146684C853AF90 BaseClass:/Game/GameManagement/BP_Player.BP_Player_C NativeClass:/Script/Engine.Actor Name:BP_Opponent_C_UAID_047C1684FEE44DF501_2035658433 Label:BP_Opponent3 SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=1402.695 Y=1504.708 Z=274.321), Max=(X=1402.695 Y=1504.708 Z=274.321) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- [+] [  3]
+ |   |   |   |- Guid:627934CD47F7E838F5E548B4D66A95BF BaseClass:/Game/GameManagement/BP_Player.BP_Player_C NativeClass:/Script/Engine.Actor Name:BP_Player_C_UAID_047C1684FEE418FE01_1915604607 Label:BP_Player SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=746.241 Y=1156.128 Z=155.659), Max=(X=746.241 Y=1156.128 Z=155.659) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- [+] [  4]
+ |   |   |   |- Guid:6BAF4DDD444C60371492D3919DB42C97 BaseClass: NativeClass:/Script/Engine.WorldDataLayers Name:WorldDataLayers Label:WorldDataLayers SpatiallyLoaded:0 Bounds:IsValid=true, Min=(X=0.000 Y=0.000 Z=0.000), Max=(X=0.000 Y=0.000 Z=0.000) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:1
+ |   |   |- [+] [  5]
+ |   |   |   |- Guid:7276A830495DCAB48FD82B8EFC315D4A BaseClass:/Game/GameManagement/GameManager.GameManager_C NativeClass:/Script/Engine.Actor Name:GameManager_C_UAID_047C1684FEE46EF201_2002596071 Label:GameManager SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=1330.000 Y=1060.000 Z=916.589), Max=(X=1330.000 Y=1060.000 Z=916.589) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- [+] [  6]
+ |   |   |   |- Guid:8097CF134EA2C87CFE1DC1B57AB261BB BaseClass:/Game/Resources/blackhole3/BlackHoleTutorial.BlackHoleTutorial_C NativeClass:/Script/Engine.Actor Name:BlackHoleTutorial_C_UAID_047C1684FEE481FA01_1877625863 Label:BlackHoleTutorial SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=-14998729.114 Y=-14998831.351 Z=-14999745.720), Max=(X=15001275.464 Y=15001169.543 Z=15000252.885) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- [+] [  7]
+ |   |   |   |- Guid:E0C7B6324961FFDB084C40BDF0DAFE32 BaseClass:/Game/Resources/blackhole2/BlackHoleBP.BlackHoleBP_C NativeClass:/Script/Engine.Actor Name:BlackHoleBP_C_UAID_047C1684FEE4ECF401_1141518378 Label:BlackHoleBP SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=1125.925 Y=1021.058 Z=110.182), Max=(X=1416.910 Y=1312.043 Z=401.167) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- [+] [  8]
+ |   |   |   |- Guid:E470947741F5C1615254E39CA07BBA3B BaseClass:/Game/GameManagement/BP_Player.BP_Player_C NativeClass:/Script/Engine.Actor Name:BP_Opponent_C_UAID_047C1684FEE44DF501_2028240432 Label:BP_Opponent2 SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=1476.796 Y=946.536 Z=423.630), Max=(X=1476.796 Y=946.536 Z=423.630) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |   |   |- [+] [  9]
+ |   |   |   |- Guid:F429E76F4F9B3C5E1C993594452BC5B7 BaseClass:/Game/GameManagement/BP_Player.BP_Player_C NativeClass:/Script/Engine.Actor Name:BP_Opponent_C_UAID_047C1684FEE44DF501_1724086431 Label:BP_Opponent SpatiallyLoaded:1 Bounds:IsValid=true, Min=(X=1304.513 Y=705.195 Z=257.524), Max=(X=1304.513 Y=705.195 Z=257.524) RuntimeGrid:None EditorOnly:0 RuntimeOnly:0 HLODRelevant:0 ListedInSceneOutliner:1 IsMainWorldOnly:0
+ |- ContainerInstances:
+ |- [+] MainContainer:
+ |   |-        ID: 00000000000000000000000000000000
+ |   |-  ParentID: 00000000000000000000000000000000
+ |   |-    Bounds: IsValid=false, Min=(X=0.000 Y=0.000 Z=0.000), Max=(X=0.000 Y=0.000 Z=0.000)
+ |   |- Transform: 0.000000,0.000000,0.000000|0.000000,0.000000,-0.000000|1.000000,1.000000,1.000000
+ |   |- Container: /Game/ThirdPerson/Maps/ThirdPersonMap
+----------------------------------------------------------------------------------------------------------------
+ThirdPersonMap - Persistent Level
+----------------------------------------------------------------------------------------------------------------
+[+] Content of ThirdPersonMap Persistent Level
+ |- Always loaded Actor Count: 17 
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.AbstractNavData-Default
+ |- Actor Package: /Game/ThirdPerson/Maps/ThirdPersonMap
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.BlackHoleBP_C_UAID_047C1684FEE4ECF401_1141518378
+ |- Actor Package: /Game/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/B/ZM/0DX9Y3AC52BWPE7WJ2NFKA
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.BlackHoleTutorial_C_UAID_047C1684FEE481FA01_1877625863
+ |- Actor Package: /Game/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/A/4H/RKZIIMPQ3LQ7B2P8JW8R12
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.BP_Opponent_C_UAID_047C1684FEE44DF501_1724086431
+ |- Actor Package: /Game/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/A/EJ/B63D1EOJHEABF0OPJ5SVSV
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.BP_Opponent_C_UAID_047C1684FEE44DF501_2028240432
+ |- Actor Package: /Game/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/C/6Z/J1UJCC40FYATJU6X7CTVUS
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.BP_Opponent_C_UAID_047C1684FEE44DF501_2035658433
+ |- Actor Package: /Game/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/MW/Y6LV5CITRJFU22C6CGIHUI
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.BP_Player_C_UAID_047C1684FEE418FE01_1915604607
+ |- Actor Package: /Game/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/7/KE/MUU32R0C2MKKL6SAJRSG7B
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.Brush_0
+ |- Actor Package: /Game/ThirdPerson/Maps/ThirdPersonMap
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.DefaultPhysicsVolume_0
+ |- Actor Package: /Game/ThirdPerson/Maps/ThirdPersonMap
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.GameManager_C_UAID_047C1684FEE46EF201_2002596071
+ |- Actor Package: /Game/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/4/LH/CWXPDPZR8R2SCKDEWDNRC7
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.GameplayDebuggerPlayerManager_0
+ |- Actor Package: /Game/ThirdPerson/Maps/ThirdPersonMap
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.PlayerStart_0
+ |- Actor Package: /Game/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/D/DE/SWSI13675DVYIZ0N4NF7Y3
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.PointLight_UAID_047C1684FEE48DFB01_1457534032
+ |- Actor Package: /Game/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/0/M3/G28AN9FP4CEWK3OVKBPDB6
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.ThirdPersonMap_C_2
+ |- Actor Package: /Game/ThirdPerson/Maps/ThirdPersonMap
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.WorldDataLayers
+ |- Actor Package: /Game/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/0/43/HYQWORMY4JDQ5X3OKZXFLC
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.WorldInfo_0
+ |- Actor Package: /Game/ThirdPerson/Maps/ThirdPersonMap
+ |- Actor Path: /Game/ThirdPerson/Maps/ThirdPersonMap.ThirdPersonMap:PersistentLevel.WorldPartitionMiniMap_0
+ |- Actor Package: /Game/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/FR/LBG6LPN5JCL3FMVSI2CK6R
+
+----------------------------------------------------------------------------------------------------------------
+ThirdPersonMap - Runtime Spatial Hash - Streaming Grid - MainGrid
+----------------------------------------------------------------------------------------------------------------
+            Origin: X=0.000 Y=0.000 Z=0.000
+         Cell Size: 12800
+      World Bounds: IsValid=false, Min=(X=0.000 Y=0.000 Z=0.000), Max=(X=0.000 Y=0.000 Z=0.000)
+     Loading Range: 25600.00
+Block Slow Loading: No
+ ClientOnlyVisible: No
+            Origin: X=0.000 Y=0.000 Z=0.000
+
+[+] Grid Levels: 1
+ |- Level  0: Cell Count    0 | Cell Size   12800 | Actor Count    0 (0.0%)
+
+[+] Content of Grid Level 0
+
