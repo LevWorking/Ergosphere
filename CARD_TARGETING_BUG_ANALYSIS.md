@@ -135,32 +135,107 @@ versions." The old widgets are never removed — they stay parented to
 `CardOverlay_Hand` but are gone from `CardHandArray`, so `UpdateCardPositions` no
 longer moves them. They freeze on screen and new cards stack over them.
 
-## Fixes, in priority order
+## Status: fixes 1, 2 and 6 are applied in this branch
 
-1. **`wCardZone.SetDraggedOverCard`** — retarget the `SET` node to
-   `CardCurrentlyDraggedOver`. (Right-click the Set node → change variable, or drop a
-   fresh `Set CardCurrentlyDraggedOver` and rewire `New Card Dragged Over` into it.)
-2. **`wCardZone.HandleDragOverStopped`** — same retarget, so leaving a card clears
-   `CardCurrentlyDraggedOver` back to `None`.
-3. **`wCardZone.OnDragOver`** — connect the `Is Valid` pin of the `IsValid` macro to
-   `MoveDraggedCardToHover` as well. With 1 and 2 fixed this is the branch that
-   actually reorders around the hovered card.
-4. **`wCardZone.UpdateWidgetReferences`** — stop calling `ClearChildren` +
-   `AddChild` on every drag-over. Either guard it so it only runs when
-   `LocalCardIndexGoal` actually changed, or reorder in place. Rebuilding the panel is
-   what destroys the geometry; `UpdateCardPositions` alone is enough to animate cards
-   to new slots once `CardHandArray` order changes.
-5. **`w_Card.OnMouseButtonDown`** — don't arm drag detection on a selection click.
-   Gate `DetectDragIfPressed` behind "are we currently in targeting mode", and have
-   the targeting branch return `Handled` without it. This is the fix that makes
-   targeting stop behaving like a drag at all.
-6. **`wCardZone` `Add Discard to Viewport`** — move `Array_Clear` to *after* the
-   removal `ForEach`.
-7. Reset `CurrentlyDraggedCard` to `None` from `Drag Stopped` / `OnDragCancelled`,
-   not only from the drop path, so an abandoned drag can't leave stale state.
+`Content/UI/CardUI/wCardZone.uasset` has been patched directly. Every edit is
+size-preserving (the file is byte-for-byte the same length, 699075), so no export
+offsets, name table entries or package offsets moved. 138 bytes differ in total,
+in 12 regions, all listed below.
 
-Fix 1 and 2 are one-node changes each and should be done first — several of the other
-symptoms are downstream of them and may simply disappear.
+**You must open `wCardZone` in the editor and press Compile, then Save.** The patch
+changes the *graph*, but the compiled bytecode still serialized in the package is the
+old one, and the editor will happily run the stale bytecode until the Blueprint is
+recompiled. `BlueprintStatus` is not serialized in this package so it could not be
+pre-dirtied for you.
+
+### What was changed
+
+**Fix 1 + 2 — retarget the two Set nodes (6 edits, 36 bytes)**
+
+`SetDraggedOverCard` and `HandleDragOverStopped` now write `CardCurrentlyDraggedOver`
+instead of `CurrentlyDraggedCard`. For each of the two `K2Node_VariableSet` nodes,
+three fields were rewritten:
+
+| field | from | to |
+|---|---|---|
+| `VariableReference.MemberName` | name idx 177 `CurrentlyDraggedCard` | name idx 141 `CardCurrentlyDraggedOver` |
+| `VariableReference.MemberGuid` | `e3b271b9204db6429f681be148992bcc` | `aba1ec274be3e34dbf63595b4159330d` |
+| value pin `FName` | name idx 177 | name idx 141 |
+
+The GUID matters: `FMemberReference` resolves by GUID before name, so changing the
+name alone would have resolved back to the old variable. The GUID written is the one
+every existing `Get CardCurrentlyDraggedOver` node in the package already carries.
+The pin name matters too: `UK2Node_VariableSet` looks its value pin up by variable
+name (`FindPinChecked`), so a mismatch is a compile failure, not a silent one.
+
+Byte offsets: 664043, 664100, 664749 (HandleDragOverStopped) and
+668044, 668101, 668774 (SetDraggedOverCard).
+
+**Fix 6 — reorder the discard refresh (6 edits, 120 bytes)**
+
+Three exec connections in `Add Discard to Viewport` were permuted in place. Each of
+the six pins involved had exactly one `LinkedTo` entry, and links are stored on both
+ends, so this is six 20-byte `{export index, pin GUID}` swaps:
+
+    before:  179.then -> 82 Array_Clear -> 250 ForEach(remove) -> 242 -> 249 AddCard
+    after:   179.then -> 250 ForEach(remove) -> 82 Array_Clear -> 242 -> 249 AddCard
+
+Byte offsets: 387900, 388120, 494190, 547186, 556676, 557776.
+
+### How it was verified
+
+* file length unchanged; `cmp -l` shows only the 12 intended regions
+* package re-parses: 375 exports all within bounds, 152 imports, 582 names
+* 308 nodes and 922 pins reconstruct, **0 dangling links**
+* full graph dump diffed before/after: identical line count, and the only changed
+  lines are the intended ones — in particular the
+  `New Card Dragged Over -> Set CardCurrentlyDraggedOver` connection survived the
+  pin rename rather than being orphaned
+
+Re-check any of this yourself with `Tools/BlueprintAudit/bpdump.py`.
+
+## Still to do in the editor — these could not be patched safely
+
+**Fix 3 (please do this one) — `wCardZone.OnDragOver`, connect the `Is Valid` pin.**
+The `IsValid` macro there has only its `Is Not Valid` pin wired to
+`MoveDraggedCardToHover`. Before, that didn't matter because the branch always went
+one way. Now that `CardCurrentlyDraggedOver` is actually populated, dragging *over a
+card* hits the unconnected pin and nothing happens, so reorder-on-hover will be inert
+until you drag a wire from `Is Valid` to the same `MoveDraggedCardToHover` node.
+
+This needs a new link, which grows the pin record and therefore every export offset
+after it — not something worth doing blind to a 700 KB binary, and it is one wire in
+the editor.
+
+Worth knowing: the outer `IsValid` check is redundant anyway.
+`MoveDraggedCardToHover` already branches on `IsValid(Destination Card)` internally
+and handles both cases. Wiring `ENTRY.then` straight into `MoveDraggedCardToHover`
+and deleting the macro is the tidier fix.
+
+**Fix 4 — stop `UpdateWidgetReferences` rebuilding the panel on every drag-over.**
+Guard it so it only runs when `LocalCardIndexGoal` actually changed. `ClearChildren` +
+`AddChild` is what destroys the cached geometry; `UpdateCardPositions` alone is enough
+to animate cards to new slots once `CardHandArray` order changes. Needs new nodes.
+
+**Fix 5 — `w_Card.OnMouseButtonDown`, don't arm drag detection on a selection click.**
+Gate `DetectDragIfPressed` behind "are we in targeting mode" and have the targeting
+branch return `Handled` without it. Needs new nodes.
+
+**Fix 7 — reset `CurrentlyDraggedCard` from `Drag Stopped` / `OnDragCancelled`,** not
+only from the drop path, so an abandoned drag cannot leave stale state. Needs a new
+node and links.
+
+## What you should expect after compiling
+
+Fixed now: the dragged-card reference is no longer overwritten by whatever card the
+pointer passes over, so the drop path removes the correct widget and the
+`Accessed None ... CurrentlyDraggedCard` errors in `OnDrop` should stop. Leaving a
+card now clears the hover reference instead of destroying the drag reference. The
+discard zone no longer leaks orphaned card widgets into `CardOverlay_Hand`.
+
+Not fixed until 3 and 4: the hand still rebuilds its whole widget tree while you drag
+over empty zone space, and reorder-on-hover stays inert until that `Is Valid` pin is
+wired. That is a deliberate trade — correct-but-inert beats corrupting.
 
 ## Unrelated log noise worth clearing
 
@@ -171,3 +246,11 @@ symptoms are downstream of them and may simply disappear.
 
 `GameManager` reads `PlayerHUD` every tick before it is assigned. Not connected to the
 targeting glitch, but it buries the errors that are.
+
+## Note on the audit tool's "never written" check
+
+Re-running the read-but-never-written scan now reports `ZoneType`, `Opponents`,
+`CardHandArray` and `CardOverlay_Hand`. Those are false positives, not new bugs:
+`CardOverlay_Hand` is a bound widget, `CardHandArray` and `Opponents` are mutated
+through array function calls rather than Set nodes, and `ZoneType` is set per-instance
+in the designer. `CardCurrentlyDraggedOver` no longer appears.
